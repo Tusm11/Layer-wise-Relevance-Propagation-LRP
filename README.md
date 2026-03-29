@@ -1,3 +1,25 @@
+# LRP-Merge: Layer-wise Relevance Propagation for LLM Merging
+
+LRP-Merge is a custom model merging method built on top of [Mergekit](https://github.com/arcee-ai/mergekit). It uses **Layer-wise Relevance Propagation (LRP)** scores to identify and preserve functionally critical weights during model merging.
+
+---
+
+##  The Core Concept
+
+### The Problem with Standard Merging
+
+Traditional merging (linear averaging) dilutes fine-tuned knowledge because it treats all weights equally. In reality, only a small fraction of weights drive new capabilities.
+
+### The LRP Solution
+
+LRP-Merge applies an XAI technique to score each weight's contribution to correct predictions:
+
+1. **Compute Task Vector:** `δ = θ_fine_tuned - θ_base`
+2. **LRP-Based Trimming:** Keep weights with highest LRP relevance scores
+3. **Weighted Averaging:** Merge sparse task vectors, add back to base
+
+---
+
 # Instructions for Running LRP-Merge on Google Colab
 
 This guide explains how to train your models using Google Colab's free GPU, which is much faster than training on a CPU-only laptop.
