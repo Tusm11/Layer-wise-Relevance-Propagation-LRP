@@ -1,0 +1,17 @@
+merge_method: lrp
+
+base_model: {MODEL_NAME}
+
+parameters:
+  density: 0.7
+  use_lrp: true
+
+models:
+  - model: {OUTPUT}
+    parameters:
+      weight: 1.0
+      lrp_scores: "./models/lrp-global/lrp_scores"
+  - model: {LOCAL_OUTPUT}
+    parameters:
+      weight: 1.0
+      lrp_scores: "./models/lrp-local/lrp_scores"
