@@ -7,7 +7,7 @@ import sys
 
 # Config file is auto injected
 
-BASE_MODEL = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+BASE_MODEL = "TinyLlama/TinyLlama-1.1B-Chat-v1.0" #model can be user-specific
 
 # These placeholders will be replaced by absolute paths from the notebook
 MODEL_1 = "./models/tinyllama-global-full"
