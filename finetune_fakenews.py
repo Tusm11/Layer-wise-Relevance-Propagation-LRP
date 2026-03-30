@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """
 Fine-tune models for fake news detection.
-
 This script fine-tunes models on fake news datasets that can then be merged.
 Optimized for CPU-only training environments with small models.
 
