@@ -5,9 +5,7 @@ import subprocess
 import shutil
 import sys
 
-# =========================
-# CONFIG (AUTO-INJECTED)
-# =========================
+# Config file is auto injected
 
 BASE_MODEL = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 
@@ -20,23 +18,20 @@ OUTPUT_DIR = "./models/merged-model"
 # Toggle this if GPU available
 USE_CUDA = True
 
-# =========================
-# VALIDATION
-# =========================
+#validation
 
 def validate():
     print("Step 1: Checking local model paths...")
 
     for path in [MODEL_1, MODEL_2]:
         if os.path.exists(path):
-            print(f"  ✓ Found: {path}")
+            print(f"Found: {path}")
         else:
-            print(f"  ✗ Missing model: {path}")
+            print(f" Missing model: {path}")
             # We won't raise error here to see the full debug output
 
-# =========================
+
 # YAML GENERATION
-# =========================
 
 def generate_yaml():
     print("Step 2: Generating YAML...")
@@ -64,12 +59,10 @@ models:
     with open("lrp_config.yaml", "w") as f:
         f.write(yaml.strip())
 
-    print("\n✓ YAML Generated:\n")
+    print("\nYAML Generated:\n")
     print(yaml)
 
-# =========================
 # MERGE EXECUTION
-# =========================
 
 def run_merge():
     print("\nStep 3: Running merge...\n")
@@ -102,12 +95,12 @@ def run_merge():
     if res.returncode != 0:
         raise RuntimeError(f"✗ Merge failed with code {res.returncode}")
 
-    print("\n✓ Merge completed successfully!")
+    print("\nMerge completed successfully!")
     print(f"📁 Output: {OUTPUT_DIR}")
 
-# =========================
+
 # MAIN
-# =========================
+
 
 def main():
     print("=== LRP MERGE PIPELINE START ===\n")
